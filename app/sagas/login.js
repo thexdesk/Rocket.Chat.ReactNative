@@ -8,7 +8,7 @@ import 'moment/min/locales';
 
 import * as types from '../actions/actionsTypes';
 import { appStart } from '../actions';
-import { serverFinishAdd, selectServerRequest } from '../actions/server';
+import { serverFinishAdd, selectServerRequest, serverRequest } from '../actions/server';
 import {
 	loginFailure, loginSuccess, setUser, logout
 } from '../actions/login';
@@ -20,6 +20,7 @@ import I18n from '../i18n';
 import database from '../lib/database';
 import EventEmitter from '../utils/events';
 import Navigation from '../lib/Navigation';
+import appConfig from '../../app.json';
 
 const getServer = state => state.server.server;
 const loginWithPasswordCall = args => RocketChat.loginWithPassword(args);
@@ -150,7 +151,8 @@ const handleLogout = function* handleLogout() {
 				}
 			}
 			// if there's no servers, go outside
-			yield put(appStart('outside'));
+			// yield put(appStart('outside'));
+			yield put(serverRequest(appConfig.server));
 		} catch (e) {
 			yield put(appStart('outside'));
 			log(e);
