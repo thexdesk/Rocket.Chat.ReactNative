@@ -32,7 +32,7 @@
     "@rocket.chat/ui-kit": "^0.2.0-alpha.25",
     "base-64": "^0.1.0",
     "bugsnag-react-native": "2.23.2",
-    "commonmark": "git+https://github.com/RocketChat/commonmark.js.git",
+    "commonmark": "0.31.2",
     "commonmark-react-renderer": "git+https://github.com/RocketChat/commonmark-react-renderer.git",
     "deep-equal": "1.1.1",
     "ejson": "2.2.0",
